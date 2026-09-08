@@ -9,7 +9,7 @@ public:
         for(auto it:mpp){
             if(it.second>=2) count++;
         }
-        if(count==1) return true;
+        if(count<=1) return true;
         else return false;
     }
 };

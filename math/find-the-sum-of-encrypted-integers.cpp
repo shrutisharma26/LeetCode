@@ -8,7 +8,7 @@ public:
             else{
                 string s = to_string(nums[i]);
                 for(int j=0; j<s.length(); j++){
-                    s[j] = s[0];
+                    s[j] = max(s[0], s[j]);
                 }
                 sum+=stoi(s);
             }

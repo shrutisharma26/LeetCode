@@ -1,18 +1,22 @@
 class Solution {
 public:
     int sumOfEncryptedInt(vector<int>& nums) {
-        int n=nums.size();
-        int sum=0;
-        for(int i=0; i<n; i++){
-            if(nums[i]>=1 && nums[i]<=9) sum+=nums[i];
-            else{
-                string s = to_string(nums[i]);
-                for(int j=0; j<s.length(); j++){
-                    s[j] = max(s[0], s[j]);
-                }
-                sum+=stoi(s);
+        int ans = 0;
+
+        for(int num : nums) {
+            string s = to_string(num);
+            char mx = '0';
+
+            for(char c : s) {
+                mx = max(mx, c);
             }
+            for(char &c : s) {
+                c = mx;
+            }
+            
+            ans += stoi(s);
         }
-        return sum;
+
+        return ans;
     }
 };
